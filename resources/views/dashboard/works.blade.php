@@ -3,7 +3,7 @@
 
 
 <div class="row m-3 justify-content-center">
-    <h3>Mis clases</h3>
+    <h3>Mis trabajos</h3>
 </div>
 
 
@@ -11,24 +11,24 @@
     <table class="table table-striped">
         <thead>
             <tr>
-              <th scope="col">Horario</th>
-              <th scope="col">Aula</th>
+              <th scope="col">Trabajo</th>
               <th scope="col">Asignatura</th>
+              <th scope="col">Nota</th>
             </tr>
         </thead>
    
         <tbody>
-            @if($classrooms->count())  
-                @foreach($classrooms as $classroom)
+            @if($works->count())  
+                @foreach($works as $work)
                     <tr>
-                        <td>{{$classroom->schedule}}</td>
-                        <td>{{$classroom->name}}</td>
-                        <td>{{$classroom->subject}}</td>
+                        <td>{{$work->name}}</td>
+                        <td>{{$work->subject}}</td>
+                        <td>{{$work->note}}</td>
                     </tr>
                 @endforeach 
             @else
                 <tr>
-                    <td colspan="3">No hay clases</td>
+                    <td colspan="3">No hay Trabajos</td>
                 </tr>
             @endif
         </tbody>

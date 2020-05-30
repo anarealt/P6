@@ -33,10 +33,10 @@
         </div>
 
         <div class="form-group">
-            <label for="nameInput">Cursos</label>
-            <select class="form-control" name="course" id="course">
-                @foreach($courses as $course)
-                    <option value={{$course->id_course}}>{{ $course }}</option>
+            <label for="nameInput">Asignaturas</label>
+            <select class="form-control" name="subject" id="subject">
+                @foreach($subjects as $subject)
+                    <option value={{$subject->id_subject}}>{{ $subject }}</option>
                 @endforeach
             </select>  
         </div>

@@ -34,10 +34,10 @@
         </div>
 
         <div class="form-group">
-            <label for="nameInput">Cursos</label>
-            <select class="form-control" name="course" id="course">
-                @foreach($courses as $course)
-                    <option @if($classroom->id_course == $course->id_course) selected="selected" @endif value={{$course->id_course}}>{{ $course }}</option>
+            <label for="nameInput">Asignaturas</label>
+            <select class="form-control" name="subject" id="subject">
+                @foreach($subjects as $subject)
+                    <option @if($classroom->id_subject == $subject->id_subject) selected="selected" @endif value={{$subject->id_subject}}>{{ $subject }}</option>
                 @endforeach
             </select>  
         </div>
@@ -48,7 +48,7 @@
         </div>
 
         <div class="form-row mt-1">
-            <a href="{{ route('course.index') }}" class="btn btn-info btn-block">Atrás</a>
+            <a href="{{ route('classroom.index') }}" class="btn btn-info btn-block">Atrás</a>
         </div>
     </form>
 </div>

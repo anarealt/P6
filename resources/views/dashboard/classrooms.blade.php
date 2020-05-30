@@ -3,7 +3,7 @@
 
 
 <div class="row m-3 justify-content-center">
-    <h3>Mis clases</h3>
+    <h3>Mis clases (HOY)</h3>
 </div>
 
 

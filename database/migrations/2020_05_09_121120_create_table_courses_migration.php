@@ -13,13 +13,9 @@ class CreateTableCoursesMigration extends Migration
      */
     public function up()
     {
-        Schema::create('courses', function (Blueprint $table) {
+        Schema::create('course', function (Blueprint $table) {
             $table->bigIncrements('id_course');
             $table->string('name');
-            $table->string('description');
-            $table->date('date_start');
-            $table->date('date_end');
-            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ class CreateTableCoursesMigration extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('courses');
+        Schema::dropIfExists('course');
     }
 }

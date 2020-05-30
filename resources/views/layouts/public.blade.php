@@ -40,8 +40,7 @@
           <li class="nav-item">
             <a class="nav-link text-white" href="{{ route('logout') }}">Cerrar sesión</a>
           </li>
-        </ul>
-      
+        </ul>      
       </div>
     </nav>
 
@@ -66,10 +65,24 @@
     
     <!-- container -->
     <div class="row">
+      <div class="col-2">
+        <div class="list-group">
+            <a class="list-group-item list-group-item-success" href="{{route('dashboard.classrooms')}}">Clases</a>
+            <div class="dropdown-divider"></div>
+            <a class="list-group-item list-group-item-primary" href="{{route('dashboard.subjects')}}">Mis Asignaturas</a>
+            <a class="list-group-item list-group-item-primary" href="{{route('dashboard.exams')}}">Mis Exámenes</a>
+            <a class="list-group-item list-group-item-primary" href="{{route('dashboard.works')}}">Mis Trabajos</a>
+        </div>
+      </div>
+
+
+      <div class="col-10">
         <div class="container">
           <!-- content -->
           @yield('content')
         </div>
+      </div>
+
     </div>
 
    

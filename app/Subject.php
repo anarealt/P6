@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Course extends Model
+class Subject extends Model
 {
-	protected $table ='courses';
-	protected $primaryKey = 'id_course';
-	protected $fillable =  array('id_course', 'name');
+	protected $table ='subject';
+	protected $primaryKey = 'id_subject';
+	protected $fillable =  array('id_subject', 'name', 'percentage_exam', 'percentage_work', 'date_start', 'date_end');
 	protected $hidden = ['created_at','updated_at'];
 
-
+	private $students = NULL;
 
 	public function __toString()
     {

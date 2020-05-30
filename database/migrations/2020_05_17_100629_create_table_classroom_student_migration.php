@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -16,7 +16,7 @@ class CreateTableClassroomStudentMigration extends Migration
         Schema::create('classroom_student', function (Blueprint $table) {
             $table->bigIncrements('id_classroom_student');
             $table->integer('id_classroom'); 
-            $table->integer('id_user'); 
+            $table->integer('id_student'); 
             $table->timestamps();
         });
     }

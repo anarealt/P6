@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Classroom;
 use App\ClassroomStudent;
 use App\User;
-use App\Course;
+use App\Subject;
 use App\Schedule;
 
 use DB;
@@ -25,7 +25,7 @@ class ClassroomController extends Controller
         $classrooms = Classroom::orderBy('id_classroom','ASC')->paginate(10);
 
         foreach ($classrooms as $classroom) {
-            $classroom->course = Course::find($classroom->id_course);
+            $classroom->subject = Subject::find($classroom->id_subject);
             $classroom->teacher = User::find($classroom->id_teacher);
             $classroom->schedule = Schedule::find($classroom->id_schedule);
         }
@@ -47,13 +47,13 @@ class ClassroomController extends Controller
                  ->where('profile.id_profile', 2);
         })->get();
 
-        //get courses
-        $courses = Course::all();
+        //get subjects
+        $subjects = Subject::all();
 
         //get schedule
         $schedules = Schedule::all();
 
-        return view('classroom.create', compact(['users', 'courses', 'schedules']));
+        return view('classroom.create', compact(['users', 'subjects', 'schedules']));
     }
 
     /**
@@ -65,11 +65,11 @@ class ClassroomController extends Controller
     public function store(Request $request)
     {
         //
-        $this->validate($request,[ 'name'=>'required', 'course'=>'required', 'teacher'=>'required', 'schedule'=>'required']);
+        $this->validate($request,[ 'name'=>'required', 'subject'=>'required', 'teacher'=>'required', 'schedule'=>'required']);
 
         Classroom::create([
                 'name' => $request->input('name'),
-                'id_course' => $request->input('course'),
+                'id_subject' => $request->input('subject'),
                 'id_teacher' => $request->input('teacher'),
                 'id_schedule' => $request->input('schedule')
             ]);
@@ -106,13 +106,13 @@ class ClassroomController extends Controller
                  ->where('profile.id_profile', 2);
         })->get();
 
-        //get courses
-        $courses = Course::all();
+        //get subjects
+        $subjects = Subject::all();
 
         //get schedule
         $schedules = Schedule::all();
 
-        return view('classroom.edit', compact(['classroom', 'users', 'courses', 'schedules']));
+        return view('classroom.edit', compact(['classroom', 'users', 'subjects', 'schedules']));
     }
 
     
@@ -131,7 +131,7 @@ class ClassroomController extends Controller
         //create default profile
         $students = array();
         foreach ($classroom->students as $student) {
-            $students[$student->id_user] = true;
+            $students[$student->id_student] = true;
         }
 
         return view('classroom.student', compact(['classroom', 'users', 'students']));
@@ -153,10 +153,10 @@ class ClassroomController extends Controller
         //add all students
         $students =  $request->input('students');
 
-        foreach ($students as $key => $id_user) {
+        foreach ($students as $key => $id_student) {
             ClassroomStudent::create([
                 'id_classroom' => $id_classroom,
-                'id_user' => $id_user
+                'id_student' => $id_student
             ]);
         }
 
@@ -186,11 +186,11 @@ class ClassroomController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $this->validate($request,[ 'name'=>'required', 'course'=>'required', 'teacher'=>'required', 'schedule'=>'required']);
+        $this->validate($request,[ 'name'=>'required', 'subject'=>'required', 'teacher'=>'required', 'schedule'=>'required']);
 
         Classroom::find($id)->update([
                 'name' => $request->input('name'),
-                'id_course' => $request->input('course'),
+                'id_subject' => $request->input('subject'),
                 'id_teacher' => $request->input('teacher'),
                 'id_schedule' => $request->input('schedule')
             ]);

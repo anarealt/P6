@@ -18,7 +18,7 @@
               <th scope="col">Nombre</th>
               <th scope="col">Horario</th>
               <th scope="col">Profesor</th>
-              <th scope="col">Curso</th>
+              <th scope="col">Asignatura</th>
               <th scope="col">Estudiantes</th>
               <th scope="col">Editar</th>
               <th scope="col">Eliminar</th>
@@ -33,7 +33,7 @@
                         <td>{{$classroom->name}}</td>
                         <td>{{$classroom->schedule}}</td>
                         <td>{{$classroom->teacher}}</td>
-                        <td>{{$classroom->course}}</td>
+                        <td>{{$classroom->subject}}</td>
                         <td>
                             <a class="btn btn-success btn-xs" href="{{action('ClassroomController@student', $classroom->id_classroom)}}"><i class="fa fa-user"></i></a>
                         </td>

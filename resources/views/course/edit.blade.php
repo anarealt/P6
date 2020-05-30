@@ -15,23 +15,6 @@
             <input type="text" name="name" id="name" class="form-control" placeholder="Nombre del curso" value="{{$course->name}}">
         </div>
 
-        <div class="form-group">
-            <label for="descriptionInput">Descripción</label>
-            <textarea name="description" id="description" class="form-control" placeholder="Descripción">{{$course->description}}</textarea>
-        </div>
-
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="startDateInput">Fecha de Inicio</label>
-                <input type="date" name="date_start" id="date_start" class="form-control input-sm" placeholder="Fecha de Inicio" value="{{$course->date_start}}">
-            </div>
-            <div class="form-group col-md-6">
-                <label for="endDateInput">Fecha de fin</label>
-                <input type="date" name="date_end" id="date_end" class="form-control input-sm" placeholder="Fecha de fin" value="{{$course->date_end}}">
-            </div>
-        </div>
-
-
         <div class="form-row">
             <input type="submit"  value="Actualizar" class="btn btn-success btn-block">
         </div>
